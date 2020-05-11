@@ -159,5 +159,4 @@ async def Help(ctx):
     await ctx.send(embed=embed)
 
 client.remove_command("help")
-
 client.run('YOUR TOKEN GOES HERE')
