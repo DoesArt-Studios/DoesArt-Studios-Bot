@@ -154,7 +154,7 @@ async def Help(ctx):
     embed.add_field(name="```.8ball```", value="do .8ball [QUESTION GOES HERE] it should then give you a random answer.", inline=False)
     embed.add_field(name="```.ping```", value="Shows the ping of the bot", inline=False)
     embed.add_field(name="```.art```", value="Do .art for art inspiration there is currently nine images do .art[number out of 2-9] do .art if you want the first art", inline=False)
-    embed.add_field(name="```.website```", value="Shows the website we get our art off", inline=False)
+    embed.add_field(name="```.discofrd```", value="Shows the Discord server link we get some of our art off", inline=False)
     embed.set_footer(text="If you need any help with commands contact the support team")
     await ctx.send(embed=embed)
 
