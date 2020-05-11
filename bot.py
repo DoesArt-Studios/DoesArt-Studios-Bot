@@ -1,5 +1,7 @@
 import discord
 import os
+import io
+import aiohttp
 import random
 from discord.ext import commands
 from discord.ext import tasks
@@ -76,69 +78,69 @@ async def unban(ctx, *, member):
             await ctx.send(f'Unbanned {user.mention}')
             return
 
-@client.command()
-async def art(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/708861766389596225/709267643030568981/art.png?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/708861766389596225/709267643030568981/art.png?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def art1(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/708861766389596225/709267643030568981/art.png?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art1(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/708861766389596225/709267643030568981/art.png?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def art2(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/708473875322896414/image0.png?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art2(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/708473875322896414/image0.png?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def art3(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/709086588398731365/image0.png?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art3(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/709086588398731365/image0.png?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def art4(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/707710404540760074/image0.png?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art4(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/707710404540760074/image0.png?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def art5(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708782836852850719/image0.png?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art5(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708782836852850719/image0.png?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def art6(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708673865198600252/image0.png?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art6(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708673865198600252/image0.png?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def art7(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708569324667011112/image0.png?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art7(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708569324667011112/image0.png?size=1024")
+        await ctx.send(embed=embed)
 
 
-@client.command()
-async def art8(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708565275213168680/image0.jpg?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art8(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708565275213168680/image0.jpg?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def art9(ctx):
-    embed=discord.Embed(color=0xff8000)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/709208908035784845/image0.jpg?size=1024")
-    await ctx.send(embed=embed)
+    @client.command()
+    async def art9(ctx):
+        embed=discord.Embed(color=0xff8000)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/709208908035784845/image0.jpg?size=1024")
+        await ctx.send(embed=embed)
 
-@client.command()
-async def discord(ctx):
+@client.command(aliases=['discord'])
+async def _discord(ctx):
     await ctx.send('https://discord.gg/9teJTGf')
 
 @client.command()
@@ -150,11 +152,28 @@ async def shutdown(ctx):
 async def Help(ctx):
     embed=discord.Embed(title="DoesArt Studios", color=0xff8000)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/708839730468618290/708896887981342730/Brody_does_art_official_logo.png?size=256")
-    embed.add_field(name="```.Help```", value="Shows this message you must do .Help otherwise it will show a different help message that is not ment to be used", inline=False)
+    embed.add_field(name="```.help```", value="Shows this message", inline=False)
     embed.add_field(name="```.8ball```", value="do .8ball [QUESTION GOES HERE] it should then give you a random answer.", inline=False)
     embed.add_field(name="```.ping```", value="Shows the ping of the bot", inline=False)
     embed.add_field(name="```.art```", value="Do .art for art inspiration there is currently nine images do .art[number out of 2-9] do .art if you want the first art", inline=False)
-    embed.add_field(name="```.discofrd```", value="Shows the Discord server link we get some of our art off", inline=False)
+    embed.add_field(name="```.discord```", value="Shows the Discord Server Invite we get some of our art off", inline=False)
+    embed.set_footer(text="If you need any help with commands contact the support team")
+    await ctx.send(embed=embed)
+
+@client.command()
+@commands.has_permissions(administrator=True)
+async def helpadmin(ctx):
+    embed=discord.Embed(title="DoesArt Studios", color=0xff8000)
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/708839730468618290/708896887981342730/Brody_does_art_official_logo.png?size=256")
+    embed.add_field(name="```.helpadmin```", value="Shows this message", inline=False)
+    embed.add_field(name="```.8ball```", value="do .8ball [QUESTION GOES HERE] it should then give you a random answer.", inline=False)
+    embed.add_field(name="```.ping```", value="Shows the ping of the bot", inline=False)
+    embed.add_field(name="```.art```", value="Do .art for art inspiration there is currently nine images do .art[number out of 2-9] do .art if you want the first art", inline=False)
+    embed.add_field(name="```.discord```", value="Shows the Discord Server Invite we get some of our art off", inline=False)
+    embed.add_field(name="```.kick```", value="kicks the specified user", inline=False)
+    embed.add_field(name="```.ban```", value="Bans the specified user", inline=False)
+    embed.add_field(name="```.unban```", value="Unbans a user", inline=False)
+    embed.add_field(name="```.clear```", value="Clears the set amount of messages", inline=False)
     embed.set_footer(text="If you need any help with commands contact the support team")
     await ctx.send(embed=embed)
 
