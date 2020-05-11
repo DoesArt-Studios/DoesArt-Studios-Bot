@@ -21,7 +21,7 @@ async def change_status():
 @client.command()
 async def art(ctx):
     embed=discord.Embed(color=0xff8000)
-    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/708861766389596225/709267643030568981/art.png?size=1024")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/708861766389596225/709267643030568981/art.png?size=1024")
     await ctx.send(embed=embed)
 
 @client.command()
