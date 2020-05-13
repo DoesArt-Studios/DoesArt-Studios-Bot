@@ -1,5 +1,6 @@
 import discord
 import random
+import os
 from discord.ext import tasks
 from itertools import cycle
 from config import Config
@@ -14,8 +15,28 @@ client.setup = False
 client.role_name = Config.role_name
 client.message_id = Config.message_id
 client.channel_id = Config.channel_id
-client.remove_command('help')
 
+
+@client.command()
+@commands.is_owner()
+async def load(ctx, extension):
+    client.load_extension(f'cogs.{extension}')
+
+@client.command()
+@commands.is_owner()
+async def reload(ctx, extension):
+    client.unload_extension(f'cogs.{extension}')
+    client.load_extension(f'cogs.{extension}')
+
+
+@client.command()
+@commands.is_owner()
+async def unload(ctx, extension):
+    client.unload_extension(f'cogs.{extension}')
+
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.{filename[: - 3]}')
 
 @client.command()
 async def setup(ctx) :
@@ -168,70 +189,7 @@ async def unban(ctx, *, member):
             await ctx.send(f'Unbanned {user.mention}')
             return
 
-    @client.command()
-    async def art(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/708861766389596225/709267643030568981/art.png?size=1024")
-        await ctx.send(embed=embed)
 
-    @client.command()
-    async def art1(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/708861766389596225/709267643030568981/art.png?size=1024")
-        await ctx.send(embed=embed)
-
-    @client.command()
-    async def art2(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/708473875322896414/image0.png?size=1024")
-        await ctx.send(embed=embed)
-
-    @client.command()
-    async def art3(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/709086588398731365/image0.png?size=1024")
-        await ctx.send(embed=embed)
-
-    @client.command()
-    async def art4(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/353076698386006016/707710404540760074/image0.png?size=1024")
-        await ctx.send(embed=embed)
-
-    @client.command()
-    async def art5(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708782836852850719/image0.png?size=1024")
-        await ctx.send(embed=embed)
-
-    @client.command()
-    async def art6(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708673865198600252/image0.png?size=1024")
-        await ctx.send(embed=embed)
-
-    @client.command()
-    async def art7(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708569324667011112/image0.png?size=1024")
-        await ctx.send(embed=embed)
-
-
-    @client.command()
-    async def art8(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/708565275213168680/image0.jpg?size=1024")
-        await ctx.send(embed=embed)
-
-    @client.command()
-    async def art9(ctx):
-        embed=discord.Embed(color=0xff8000)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/474808181579841546/709208908035784845/image0.jpg?size=1024")
-        await ctx.send(embed=embed)
-
-@client.command(aliases=['discord'])
-async def _discord(ctx):
-    await ctx.send('https://discord.gg/9teJTGf')
 
 @client.command()
 @commands.is_owner()
@@ -239,7 +197,7 @@ async def shutdown(ctx):
     await ctx.bot.logout()
 
 @client.command(pass_ctx=True)
-async def help(ctx):
+async def Help(ctx):
     embed=discord.Embed(title="DoesArt Studios", color=0xff8000)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/708839730468618290/708896887981342730/Brody_does_art_official_logo.png?size=256")
     embed.add_field(name="```.help```", value="Shows this message", inline=False)
