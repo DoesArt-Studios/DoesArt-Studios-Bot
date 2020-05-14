@@ -12,7 +12,7 @@ If you like this repo. and this helped you then STAR this repo.
 # Contact
 Discord: brodydoesart#5782
 
-# COPYRIGHT (C)
+# COPYRIGHT (c)
 Copyright (c) 2020 DoesArt Studios
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
